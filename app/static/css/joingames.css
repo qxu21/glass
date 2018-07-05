@@ -1,0 +1,12 @@
+#newgame {
+    align-self: right;
+    flex: initial;
+}
+
+#newgamebox {
+    display: flex;
+    margin: 5px 0px 5px 0px;
+    padding: 5px;
+    flex-direction: row-reverse;
+}
+

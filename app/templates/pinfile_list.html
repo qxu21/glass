@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ guild_name.name }}</h1>
+{% for pair in pairs %}
+<p><a href="{{pair[0]}}">{{pair[1]}}</a></p>
+{% endfor %}
+
+{% endblock %}

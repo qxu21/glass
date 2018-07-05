@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p><a href="{{ url_for('index') }}">BACK</a></p>
+<p>Use <code>!pin &lt;first few words of message&gt;</code> to pin a single message.</p>
+<p><code>!quote<br />
+&lt;first few words of start message&gt;<br />
+&lt;first few words of end message&gt;<br /></code>
+(with newlines included) pins a message block.</p>
+<p>The bot also accepts message IDs. You can copy any message's ID by turning on Developer Mode in the Appearance menu of Discord settings. This seems to be the only thing Developer Mode does.</p>
+<p>Use <code>!pinfile</code> to grab the current channel's pin file, or <code>!pinfile #channel</code> to obtain another channel's pin file.</p>
+<p>Use <code>!pinfile all</code> or <code>!omnipinfile</code> to grab a pinfile for the whole server.</p>
+<p>Use <code>!unpin</code> to unpin the last message(s) that you pinned, within ten minutes of pinning. </p>
+<p>Use <code>!help</code> to display this help message.</p>
+<p>Use <code>!invite</code> to obtain an invite for Scribe.</p>
+<p>Additional support can be obtained in <a href="https://discord.gg/Tk6G9Gr">this Discord server.</a></p>
+{% endblock %}

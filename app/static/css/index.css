@@ -1,0 +1,49 @@
+
+
+.main {
+		display: inline-flex;
+		width: 100%;
+		flex-wrap: wrap;
+}
+
+.newgame {
+		text-align: center;
+		margin: 20px 140px 20px 140px;
+		padding: 10px 20px 10px 20px;
+}
+
+.tables {
+		flex: 1;
+}
+.tables, .tables tr, .tables td, .tables th {
+		border: 1px double black;
+}
+
+.tables td, .tables th {
+		text-align: center;
+		padding: 5px 5px 5px 5px;
+}
+
+.spectate {
+		text-align: center;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+}
+
+.moreinfo {
+		flex: 1;
+		padding: 0 10px 5px 10px;
+}
+
+.fullscreen {
+		/*height: 100%;*/
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+}
+
+.title {
+    padding: 0 0 0 0;
+}

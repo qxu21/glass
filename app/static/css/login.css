@@ -1,0 +1,30 @@
+#loginbox {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loginbox h1 {
+    margin: 12px 0 10px 0;
+}
+
+#error {
+    background-color: #b72c2a;
+}
+
+p {
+    /*text-align: center;*/
+}
+
+.loginform {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginform * {
+    margin: 5px 0 5px 0;
+
+/*.loginform input {
+    align-self: center;
+}*/
