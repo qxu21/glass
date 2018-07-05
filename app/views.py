@@ -99,7 +99,7 @@ def logout():
 @login_required
 def pinfile_list():
     pairs = []
-    for fn in glob.glob(os.path.join(pindir, g.user.id, "*.json")):
+    for fn in glob.glob(os.path.join(app.config['PINDIR'], g.user.id, "*.json")):
         channel_id = os.path.splitext(os.path.split(fn)[1])[0]
         name = Name.query.get(channel_id)
         if name is not None:
@@ -110,7 +110,7 @@ def pinfile_list():
 @login_required
 def pinfile(pinfileid):
     pinfileid = int_404(pinfileid)
-    fi = os.path.join(pindir, str(current_user.id), str(pinfileid) + ".json")
+    fi = os.path.join(app.config['PINDIR'], str(current_user.id), str(pinfileid) + ".json")
     try:
         with open(fi) as f:
             j = json.load(f)
