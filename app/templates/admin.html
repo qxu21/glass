@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method='post' name='newgame' action=''>
+    {{ form.hidden_tag() }}
+    <p>Name: {{ form.name(size=30) }}</p>
+    <p>Type: {{ form.gametype }}</p>
+    {#% if g.user.username == "admin" %}
+    <p>Nojoin: {{ form.nojoin }}</p>
+    {% endif %#}
+    <br>
+    <input class="redlink redlinkbox" type="submit" value="New Game">
+</form>
+{% endblock %}

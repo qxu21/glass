@@ -1,0 +1,11 @@
+.centerflex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    text-align: center;
+    flex: 1;
+    padding: 0 5px 0 5px;
+}
