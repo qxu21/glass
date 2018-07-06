@@ -5,7 +5,7 @@
     {% if g.user.is_authenticated %}
     <p><strong>You are already logged in, view pinfiles <a href="{{ url_for('pinfile_list') }}">here</a> or log in with a different password below to view other servers' pinfiles.</strong></p>
     {% endif %}
-    <p>Get a passcode by running !password in a Discord server.</p>
+    <p>Get a passcode by running !password in a Discord server. Please submit issues, recommendations, or new code to the GitHub page.</p>
     <form action="" method="post" name="serverlogin">
          {{ form.hidden_tag() }}
          <p>
