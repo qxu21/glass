@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, session, request, g, abort
 from flask_login import login_user, logout_user, current_user, login_required
 from app import app, db, lm #, bcrypt
-from .forms import ServerLoginForm
+#from .forms import ServerLoginForm
 from .models import Name, Guild
 from .functions import json_msg_to_text
 import glob
@@ -65,20 +65,10 @@ def int_404(p):
 
 @app.route('/', methods=['GET','POST'])
 def index():
-    form=ServerLoginForm()
-    if form.validate_on_submit():
-        # GLASS: if the id is valid and the password hash matches the stored pwd, log em in
-        #if not os.path.isdir(os.path.join(pindir, form.guild_id.data)):
-            # GLASS: is the directory <scribe>/pins/<guildid> extant
-            # UPDATE: using database method instead
-        #guild_name = Name.query.filter_by(id=form.guild_id.data, is_guild=True)
-        #if guild_name is None:
-        # UPDATE: now storing guild names in Guild instead of Name
-        #    flash("Invalid!")
-        #    return redirect(url_for('index'))
-        #with open(os.path.join(pindir, form.guild_id.data, "pass.txt")) as f:
-        #    p = f.read() #gotta do plaintext passcodes so scribe can send them #not doing file-based password
-        guild = Guild.query.filter_by(pwd=form.password.data).first() #error: if two servers are assigned the same pwd app breaks, but that's unlikely
+    #form=ServerLoginForm()
+    #if form.validate_on_submit():
+    if 'pwd' in request.args:
+        guild = Guild.query.filter_by(pwd=request.args['pwd']).first() #error: if two servers are assigned the same pwd app breaks, but that's unlikely
         if guild is not None:
             logout_user()
             login_user(User(guild.id))
@@ -86,8 +76,7 @@ def index():
         else:
             flash("Invalid passcode!")
             return redirect(url_for('index'))
-    return render_template('index.html',
-            form=form)
+    return render_template('index.html')
 
 @app.route('/logout')
 @login_required
