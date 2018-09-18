@@ -1,7 +1,6 @@
 from flask import render_template, flash, redirect, url_for, session, request, g, abort
 from flask_login import login_user, logout_user, current_user, login_required
-from app import app, db, lm #, bcrypt
-#from .forms import ServerLoginForm
+from app import app, db, lm
 from .models import Name, Guild
 from .functions import json_msg_to_text_array
 import glob
@@ -9,26 +8,10 @@ import os.path
 import os
 import json
 
-# GLASS TODO
-# implement password genration scribeside
-# index/login
-# list of pinfile pages
-# page per pinfile
-# logout
-
-# GLASS TODO LATER:
-# download pinfile button
-# styling
-# query string passwords for instant auth
-
-#IMMINENT TODO: ADD A COLUMN IN DB FOR SERVER/CHANNEL, THEN ADD GUILD IDS IN THERE TOO
-#NEW IMMINENT TODO: NEWLINES NOT WORKING, NAMES NOT WORKING, LOTS OF STUFF NOT_WORKING.TXT
-#IMMINENT TODO: ADD ERROR HANDLER, KEEP FIXING BUGS, DEPLOOOOOOOYYYYYYYYYY
-
-# ONE USER PER SERVER, HOPEFULLY SIMULTANEOUS LOGIN WORKS
-# I'LL HAVE TO PUT THIS IN THE DB IF IT GETS ANY MORE COMPLEX
-
-#MOVE THIS
+# TODO:
+#maybe increase dimming on the white sections
+#style the other pages
+# maybe a static masthead of something
 
 class User():
     def __init__(self, sid):

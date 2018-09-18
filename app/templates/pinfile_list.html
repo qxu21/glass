@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>{{ guild_name.name }}</h1>
-{% for pair in pairs %}
-<p><a href="{{pair[0]}}">{{pair[1]}}</a></p>
-{% endfor %}
+<h1>GUILD: {{ guild_name.name }}</h1>
+<div>
+	{% for pair in pairs %}
+	<a href="{{pair[0]}}" style="color: black;text-decoration: none;"><h3 class="blacklink" style="border: solid 1px;">{{pair[1]}}</h3></a>
+	{% endfor %}
+</div>
 
 {% endblock %}
