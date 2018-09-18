@@ -1,6 +1,27 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+        <style>
+        nav {
+            display: flex;
+            background-color: #888888;
+            padding: 0px;
+            margin: 0px;
+            border: solid 1px;
+        }
+        .blacklink {
+            background-color: #888888;
+            padding: 10px;
+            margin: 0;
+        }
+        .blacklink:hover {
+            background-color: #666666;
+        }
+        .blacklink a {
+            color: black;
+            text-decoration: none;
+        }
+        </style>
 		<meta charset="utf-8">
 		<title>glass</title>
         <link href="{{ url_for('.static', filename='css/base.css') }}" rel="stylesheet" type="text/css">
@@ -9,7 +30,15 @@
 	<body>
 	<h1>SCRIBE PINFILE VIEWER</h1>
     <img src="{{ url_for('.static', filename='images/scribe.png') }}" width=100px> {# add borders? #}
-    <h3>{% if g.user.is_authenticated %}<a href="{{ url_for('logout') }}">LOG OUT</a>&nbsp;&nbsp;<a href="{{ url_for('pinfile_list') }}">PINFILE LIST</a>&nbsp;&nbsp;{% endif %}<a href="https://discordapp.com/api/oauth2/authorize?client_id=413082884912578560&permissions=0&scope=bot">INVITE SCRIBE</a>&nbsp;&nbsp;<a href="{{ url_for('help') }}">HELP</a>&nbsp;&nbsp;<a href="https://github.com/qxu21/glass">GITHUB</a></h3>
+    <nav>
+        <h3 class="blacklink"><a href="https://discordapp.com/api/oauth2/authorize?client_id=413082884912578560&permissions=0&scope=bot">INVITE SCRIBE</a></h3>
+        <h3 class="blacklink"><a href="{{ url_for('help') }}">HELP</a></h3>
+        <h3 class="blacklink"><a href="https://github.com/qxu21/glass">GITHUB</a></h3>
+        {% if g.user.is_authenticated %}
+        <h3 class="blacklink"><a href="{{ url_for('pinfile_list') }}">PINFILE LIST</a></h3>
+        <h3 class="blacklink"><a href="{{ url_for('logout') }}">LOG OUT</a></h3>
+        {% endif %}
+    </nav>
 	{% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
