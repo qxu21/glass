@@ -20,6 +20,28 @@ def json_msg_to_text(j):
             e += "\nATTACHMENT: " + a
     return e
 
+def json_msg_to_text_array(j):
+    #import pdb; pdb.set_trace()
+    e = []
+    if "edited_timestamp" in j and j["edited_timestamp"] is not None:
+        e.append("[{} edited {}] {}#{}: ".format(
+            j["timestamp"],
+            j["edited_timestamp"],
+            j["author_name"],
+            j["author_discrim"]))
+    else:
+        e.append("[{}] {}#{}: ".format(
+            j["timestamp"],
+            j["author_name"],
+            j["author_discrim"]))
+    c = j["content"].split("\n")
+    e[0] += c[0]
+    e.extend(c[1:])
+    if "attachments" in j:
+        for a in j["attachments"]:
+            e.append("ATTACHMENT: " + a)
+    return e
+
 def json_file_to_string(fn):
     with open(fn) as fi:
         j = json.load(fi)
