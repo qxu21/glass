@@ -3,7 +3,7 @@ from flask_login import login_user, logout_user, current_user, login_required
 from app import app, db, lm #, bcrypt
 #from .forms import ServerLoginForm
 from .models import Name, Guild
-from .functions import json_msg_to_text
+from .functions import json_msg_to_text_array
 import glob
 import os.path
 import os
@@ -99,6 +99,7 @@ def pinfile_list():
 @login_required
 def pinfile(pinfileid):
     pinfileid = int_404(pinfileid)
+    # don't worry, this doesn't leak
     fi = os.path.join(app.config['PINDIR'], str(current_user.id), str(pinfileid) + ".json")
     try:
         with open(fi) as f:
@@ -108,9 +109,9 @@ def pinfile(pinfileid):
     pins = []
     for o in j:
         if o['is_quote']:
-            pins.append([json_msg_to_text(m) for m in o['messages']])
+            pins.append([json_msg_to_text_array(m) for m in o['messages']])
         else:
-            pins.append([json_msg_to_text(o)])
+            pins.append([json_msg_to_text_array(o)])
     guild_name = Guild.query.get(current_user.id)
     channel_name = Name.query.get(pinfileid)
     return render_template('pinfile.html', guild_name=guild_name, channel_name=channel_name, pins=pins)
