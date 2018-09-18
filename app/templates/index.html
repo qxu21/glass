@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="center_flex">
-    {% if g.user.is_authenticated %}
+<div class="container">
+  {% if g.user.is_authenticated %}
     <p><strong>You are already logged in, view pinfiles <a href="{{ url_for('pinfile_list') }}">here</a> or log in with a different password below to view other servers' pinfiles.</strong></p>
     {% endif %}
-    <p>Get an access URL by running !link in a Discord server. Please submit issues, recommendations, or new code to the GitHub page.</p>
+    <p>Get an access URL by running <tt>!link</tt> in a Discord server. Please submit issues, recommendations, or new code to <a href="github.com/qxu21/glass">the GitHub page.</a></p>
     {#<form action="" method="post" name="serverlogin">
          {{ form.hidden_tag() }}
          <p>

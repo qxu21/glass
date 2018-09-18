@@ -1,39 +1,36 @@
 {% extends "base.html" %}
 {% block head %}
-<style>
-.pin {
-	margin: 5px 0 5px 0;
-	padding: 2px;
-	border: solid 1px;
-}
-.pin:nth-child(odd) {
-	background-color: white;
-}
-.pin:nth-child(odd):hover {
-	background-color: #eeeeee;
-}
-.pin:nth-child(even) {
-	 background-color: #cecece;
-}
-.pin:nth-child(even):hover {
-	background-color: #bbbbbb;
-}
-
-</style>
 {% endblock %}
 {% block content %}
-<h1>{{ guild_name.name }}</h1>
-<h2>#{{ channel_name.name }}</h2>
+<h1>{{ guild_name.name }}: #{{channel_name.name}}</h1>
 
 {% for pin in pins %}
-<div class="pin">
-{% for msg in pin %}
-<div class="msg">
-{% for line in msg %}
-{{ line }} <br />
-{% endfor %}
-</div>
-{% endfor %}
+<div class="container">
+  <table style="width:100%">
+    {% for msg in pin %}
+    <tr>
+      <td>
+	<span class="text-primary"> {{ msg.author_name }}<small class="text-muted">#{{ msg.author_discrim }}</small></span>:	
+	{{ msg.content }}
+	{% for attach in msg.attachments %}
+	{% if attach.endswith(".png") or attach.endswith(".jpg") %}
+	<br><a href="{{attach}}"><img src="{{attach}}" style="max-width:40%"></a>
+	{% else %}
+	<a href="{{ attach }}"> Attachment </a>
+	{% endif %}
+	{% endfor %}
+      </td>
+      <td width="20%" align="right">
+	{% if "edited_timestamp" in msg %}
+	<small class="text-muted"> *{{msg.edited_timestamp}} </small>
+	{% else %}
+	<small class="text-muted"> {{msg.timestamp}} </small>
+	{% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  <hr>
 </div>
 {% endfor %}
 
