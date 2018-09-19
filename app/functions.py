@@ -24,6 +24,7 @@ def json_msg_to_text_array(j):
     #import pdb; pdb.set_trace()
     e = []
     if "edited_timestamp" in j and j["edited_timestamp"] is not None:
+        e.append({"test": "foo"})
         e.append("[{} edited {}] {}#{}: ".format(
             j["timestamp"],
             j["edited_timestamp"],

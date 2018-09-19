@@ -92,9 +92,9 @@ def pinfile(pinfileid):
     pins = []
     for o in j:
         if o['is_quote']:
-            pins.append([json_msg_to_text_array(m) for m in o['messages']])
+            pins.append(o['messages'])
         else:
-            pins.append([json_msg_to_text_array(o)])
+            pins.append([o])
     guild_name = Guild.query.get(current_user.id)
     channel_name = Name.query.get(pinfileid)
     return render_template('pinfile.html', guild_name=guild_name, channel_name=channel_name, pins=pins)
