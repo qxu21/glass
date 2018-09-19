@@ -9,17 +9,18 @@
             margin: 0px;
             border: solid 1px;
         }
-        .blacklink {
+        .blacklinkbox {
             background-color: #888888;
             padding: 10px;
-            margin: 0;
-        }
-        .blacklink:hover {
-            background-color: #666666;
-        }
-        .blacklink a {
+            margin: 0px;
             color: black;
             text-decoration: none;
+        }
+        .blacklinkbox:hover {
+            background-color: #666666;
+        }
+        .blacklinkbox * {
+            
         }
         </style>
 		<meta charset="utf-8">
@@ -31,12 +32,12 @@
 	<h1>SCRIBE PINFILE VIEWER</h1>
     <img src="{{ url_for('.static', filename='images/scribe.png') }}" width=100px> {# add borders? #}
     <nav>
-        <h3 class="blacklink"><a href="https://discordapp.com/api/oauth2/authorize?client_id=413082884912578560&permissions=0&scope=bot">INVITE SCRIBE</a></h3>
-        <h3 class="blacklink"><a href="{{ url_for('help') }}">HELP</a></h3>
-        <h3 class="blacklink"><a href="https://github.com/qxu21/glass">GITHUB</a></h3>
+        <a href="https://discordapp.com/api/oauth2/authorize?client_id=413082884912578560&permissions=0&scope=bot" class="blacklinkbox"><h3>INVITE SCRIBE</h3></a>
+        <a href="{{ url_for('help') }}" class="blacklinkbox"><h3>HELP</h3></a>
+        <a href="https://github.com/qxu21/glass" class="blacklinkbox"><h3>GITHUB</h3></a>
         {% if g.user.is_authenticated %}
-        <h3 class="blacklink"><a href="{{ url_for('pinfile_list') }}">PINFILE LIST</a></h3>
-        <h3 class="blacklink"><a href="{{ url_for('logout') }}">LOG OUT</a></h3>
+        <a href="{{ url_for('pinfile_list') }}" class="blacklinkbox"><h3>PINFILE LIST</h3></a>
+        <a href="{{ url_for('logout') }}" class="blacklinkbox"><h3>LOG OUT</h3></a>
         {% endif %}
     </nav>
 	{% with messages = get_flashed_messages() %}
