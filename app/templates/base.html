@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <meta charset="utf-8">
-    <title>glass</title>
+    <title>Scribe Pinfile Viewer</title>
     {% block head %}{% endblock %}
   </head>
   <body>
@@ -11,10 +11,10 @@
       <div class="media"> 
 	<img src="{{ url_for('.static', filename='images/scribe.png') }}" width=100px> {# add borders? #}
 	<div class="media-body">
-	  <h1>SCRIBE PINFILE VIEWER</h1>
+	  <h1 style="margin: 10px;">SCRIBE PINFILE VIEWER</h1>
 	</div>
       </div>
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar navbar-light bg-light" style="margin: 10px;">
 	<a class="navbar-item" href="https://discordapp.com/api/oauth2/authorize?client_id=413082884912578560&permissions=0&scope=bot">INVITE SCRIBE</a>
 	<a class="navbar-item" href="{{ url_for('help') }}">HELP</a>
 	<a class="navbar-item" href="https://github.com/qxu21/glass">GITHUB</a>
