@@ -23,7 +23,7 @@
 	{% endfor %}
       </td>
       <td width="20%" align="right" style="vertical-align:top">
-	{% if "edited_timestamp" in msg %}
+	{% if msg.edited_timestamp %}
 	<small class="text-muted"> *{{msg.edited_timestamp}} </small>
 	{% else %}
 	<small class="text-muted"> {{msg.timestamp}} </small>
