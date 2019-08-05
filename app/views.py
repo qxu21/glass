@@ -12,6 +12,8 @@ import json
 #maybe increase dimming on the white sections
 #style the other pages
 # maybe a static masthead of something
+# abbreviate long urls to https:/domain...end
+# images breaking???
 
 class User():
     def __init__(self, sid):
